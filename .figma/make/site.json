@@ -1,0 +1,11 @@
+{
+  "title": "HK7",
+  "description": "A shared graduation memory platform where 84 classmates preserve their stories through a 3D signed jersey, personal farewell walls, and a collaborative photo scrapbook.",
+  "robots": {
+    "index": false
+  },
+  "accessibility": {
+    "addBypassLinks": false,
+    "ignoreReducedMotion": false
+  }
+}

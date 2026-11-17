@@ -1,0 +1,129 @@
+@import 'tailwindcss';
+
+@theme {
+  --color-ivory: #fbf7f0;
+  --color-paper: #fffdf8;
+  --color-linen: #f5eee3;
+  --color-beige: #ece3d4;
+  --color-sand: #dacdb8;
+  --color-taupe: #a7967f;
+  --color-ink: #2b2420;
+  --color-ink-soft: #5d534a;
+  --color-muted: #8b7f73;
+  --color-blush: #f8e6ea;
+  --color-rose: #eaa7b6;
+  --color-rose-deep: #c4677f;
+  --color-moss: #7d8a6a;
+
+  --font-display: var(--font-fraunces), ui-serif, Georgia, 'Times New Roman', serif;
+  --font-sans: var(--font-manrope), ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-hand: var(--font-caveat), 'Segoe Print', 'Bradley Hand', cursive;
+
+  --shadow-paper: 0 1px 1px rgb(70 48 24 / 0.05), 0 8px 22px -10px rgb(70 48 24 / 0.22);
+  --shadow-lift: 0 2px 6px rgb(70 48 24 / 0.08), 0 24px 48px -18px rgb(70 48 24 / 0.32);
+  --shadow-polaroid: 0 1px 2px rgb(60 40 20 / 0.12), 0 10px 24px -8px rgb(60 40 20 / 0.28);
+
+  --animate-rise: rise 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  --animate-fade: fade 0.4s ease both;
+  --animate-pop: pop 0.45s cubic-bezier(0.2, 0.9, 0.3, 1.25) both;
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes pop {
+  from {
+    opacity: 0;
+    transform: scale(0.92);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@layer base {
+  html {
+    background-color: var(--color-ivory);
+    -webkit-tap-highlight-color: transparent;
+    overflow-x: clip;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    color: var(--color-ink);
+    overflow-x: clip;
+  }
+
+  ::selection {
+    background: var(--color-blush);
+    color: var(--color-ink);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-rose-deep);
+    outline-offset: 2px;
+  }
+}
+
+/* Subtle paper grain used on scrapbook surfaces. */
+@utility paper-grain {
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='g'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.36 0 0 0 0 0.27 0 0 0 0 0.17 0 0 0 0.07 0'/></filter><rect width='100%25' height='100%25' filter='url(%23g)'/></svg>");
+}
+
+/* Warm plaster wall used behind the memory wall photographs. */
+@utility plaster {
+  background-color: #efe6d6;
+  background-image:
+    radial-gradient(circle at 20% 30%, rgb(255 255 255 / 0.45), transparent 40%),
+    radial-gradient(circle at 80% 70%, rgb(210 190 160 / 0.25), transparent 45%),
+    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='p'><feTurbulence type='fractalNoise' baseFrequency='0.55' numOctaves='4' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.45 0 0 0 0 0.36 0 0 0 0 0.24 0 0 0 0.09 0'/></filter><rect width='100%25' height='100%25' filter='url(%23p)'/></svg>");
+}
+
+@utility scrollbar-none {
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.figma-custom-code-fragment {
+  display: contents;
+}
+
+.figma-bypass-link {
+  position: fixed;
+  top: 8px;
+  left: 8px;
+  z-index: 2147483647;
+  transform: translateY(-150%);
+  border-radius: 6px;
+  background: #111827;
+  color: #fff;
+  padding: 8px 12px;
+  font:
+    600 14px/1.2 system-ui,
+    sans-serif;
+  text-decoration: none;
+}
+
+.figma-bypass-link:focus {
+  transform: translateY(0);
+}
